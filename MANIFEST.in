@@ -1,0 +1,3 @@
+recursive-include jupyter-config *.json
+recursive-include jupytertoolbox/static *.js
+include README.md
