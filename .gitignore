@@ -1,0 +1,4 @@
+.DS_Store
+jupytertoolbox.egg-info/*
+build/*
+dist/*
