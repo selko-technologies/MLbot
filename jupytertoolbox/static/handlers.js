@@ -7,11 +7,11 @@ define(['jquery', 'base/js/namespace', 'base/js/dialog'], function($, Jupyter, d
         var base_url = window.location.origin;
         var post_url = base_url + '/selectversion';
         
-        if (selected_version.attr("fname") != 'header') {
+        if (selected_version.attr("fpath") != 'header') {
             $.ajax({
                 type: 'GET',
                 url: post_url,
-                data: { fname: selected_version.attr("fname") },
+                data: { fpath: selected_version.attr("fpath") },
                 dataType: "text",
                 success: function (response) {
                     console.log('Successfully changed notebook version');
@@ -37,14 +37,14 @@ define(['jquery', 'base/js/namespace', 'base/js/dialog'], function($, Jupyter, d
         function on_click_ok() {
             var base_url = window.location.origin;
             // eg. /notebooks/test.ipynb  rm /notebooks/ later
-            var filename = window.location.pathname;
+            var fpath = window.location.pathname;
             var post_url = base_url + '/savelocally';
 
             $.ajax({
                 type: "GET",
                 url: post_url,
                 data: {
-                    fname : filename,
+                    fpath : fpath,
                     note : input.val()
                 },
                 dataType:"text",
@@ -91,7 +91,7 @@ define(['jquery', 'base/js/namespace', 'base/js/dialog'], function($, Jupyter, d
             var re = /^\/notebooks(.*?)$/;
             var filepath = window.location.pathname.match(re)[1];
             var payload = {
-                'fname': filepath,
+                'fpath': filepath,
                 'note': input.val()
             };
             var settings = {

@@ -40,11 +40,15 @@ define(['jquery', 'base/js/namespace', 'base/js/dialog', './handlers'], function
             .attr("id", "menu_header")
             .text("Versions");
         $("select#version_picker").append(option);
-
-        $.getJSON("./nb_versions/version_log.json", function(data) {
+        
+        var url = window.location.pathname;
+        var fname = url.substring(url.lastIndexOf('/')+1);
+        var fname_only = fname.substring(0,fname.indexOf('.'))
+            
+        $.getJSON("./nb_versions/"+fname_only+"/version_log.json", function(data) {
             $.each(data['versions'], function(key, version) {
                 var option = $("<option></option>")
-                    .attr("fname", version['fname'])
+                    .attr("fpath", version['fpath'])
                     .text('v' + version['version'].toString())
                     .prop('title', version['note']);
                 $("select#version_picker").append(option);

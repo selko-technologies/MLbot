@@ -8,7 +8,7 @@ from notebook.base.handlers import IPythonHandler
 version_dir = './nb_versions/'
 
 def index_versions():
-    #! not in use currently
+    #! Outdated, not in use currently
     """
     Search through custom local directory for historical versions and their info
     """
@@ -85,17 +85,15 @@ class ChangeVersionHandler(IPythonHandler):
     """
 
     def get(self):
-        version = self.get_query_argument('fname')
+        version = self.get_query_argument('fpath')
         self.write('Copying over the selected version')
         overwrite_version(version)
-        
-        self.write('works')
 
 
-def overwrite_version(version):
-    fname = version.split("/")[-1]
-    current = "./"+fname
-    shutil.copyfile(version, current)
+def overwrite_version(selected_version_fpath):
+    fname = selected_version_fpath.split("/")[-2]
+    current_fpath = "./"+fname+'.ipynb'
+    shutil.copyfile(selected_version_fpath, current_fpath)
 
 
 class SaveLocallyHandler(IPythonHandler):
@@ -108,32 +106,34 @@ class SaveLocallyHandler(IPythonHandler):
     def get(self):
         if not os.path.isdir(version_dir):
             os.makedirs(version_dir, exist_ok=True)
-        fpath = self.get_query_argument('fname')
+        fpath = self.get_query_argument('fpath')
         note = self.get_query_argument('note')
         fname = fpath.split("/")[-1]
-        current = "./"+fname
+        fname_only = fname.split(".")[0]
+        current = "./" + fname
+        current_notebook_version_dir = version_dir+fname_only+'/'
+        if not os.path.isdir(current_notebook_version_dir):
+            os.makedirs(current_notebook_version_dir, exist_ok=True)
 
         # assign incremental version number
         i = 1
-        while os.path.exists(version_dir+f'{i}'):
+        while os.path.exists(current_notebook_version_dir+fname_only+f'-{i}.ipynb'):
             i += 1
-        dir_for_new_version = version_dir + f'{i}' + '/'
-        os.makedirs(dir_for_new_version, exist_ok=True)
-        new = dir_for_new_version + fname
-        shutil.copyfile(current, new)
+        new_fpath = current_notebook_version_dir+fname_only+f'-{i}.ipynb'
+        shutil.copyfile(current, new_fpath)
         time_now = datetime_to_str(datetime.now())
 
         # write json with version info and version notes
-        notebook_info = dict(fname=new, version=i, time=time_now, note=note)
-        log_file = version_dir + 'version_log.json'
-        if os.path.exists(log_file):
-            with open(log_file, 'r') as fin:
+        notebook_info = dict(fpath=new_fpath, version=i, time=time_now, note=note)
+        log_fpath = current_notebook_version_dir + 'version_log.json'
+        if os.path.exists(log_fpath):
+            with open(log_fpath, 'r') as fin:
                 version_list = json.load(fin)['versions']
                 version_list.append(notebook_info)
         else:
             version_list = [notebook_info]
         json_data = {'versions':version_list}
-        with open(log_file, 'w') as fout:
+        with open(log_fpath, 'w') as fout:
             json.dump(json_data, fout)
 
         self.write('works')

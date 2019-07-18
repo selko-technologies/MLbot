@@ -9,7 +9,7 @@ setup(
     name='jupytertoolbox',
     description="Version control, experiment tracking, script exporting, etc. for Jupyter notebooks",
     long_description="",
-    version='0.0.1a1dev3',
+    version='0.0.1a1dev6',
     author='Sirong Huang',
     author_email='sirong.huang@selko.io',
     url=('https://github.com/selko-io/jupyter-toolbox'),

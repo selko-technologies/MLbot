@@ -14,17 +14,22 @@
 ## Features
 
 1. Version control
-    - multiple storage options:
-        - save locally
-        - save to github (coming soon)
-        - save to gitlab (coming soon)
+    - multiple storage options
     - show historical versions in dropdown menu
     - switch to specific version of the notebook with a click
 
 2. Automatically experiment tracking
     - most of useful parameters, loss, metrics, data version, model pointer etc....
     - upload to multiple tracking service:
-        - neptune (developing)
-        - model chimp (maybe)
-        - ml flow (maybe)
+        
+## Todo:
+- save to github
+- save to gitlab
+- automatic experiment tracking 
+    - neptune
+    - ml flow
+    - model chimp
 
+## Limitations:
+- when the notebook is renamed, it'll generate a new save folder for the newly named notebook without access to previous versions. 
+Can be possibly solved by creating custom ContentManager API.
