@@ -6,33 +6,33 @@ from __future__ import print_function
 from setuptools import find_packages, setup
 
 setup(
-    name='jupytertoolbox',
+    name='snapit',
     description="Version control, experiment tracking, script exporting, etc. for Jupyter notebooks",
     long_description="",
-    version='0.0.1a1dev6',
+    version='0.0.1a1dev1',
     author='Sirong Huang',
     author_email='sirong.huang@selko.io',
     url=('https://github.com/selko-io/jupyter-toolbox'),
     keywords=['IPython', 'Jupyter', 'notebook','version control','experiment tracking','script export'],
     license='BSD-2-Clause',
     platforms=['Any'],
-    packages=['jupytertoolbox'],
+    packages=['snapit'],
     include_package_data=True,
     data_files=[
         # like `jupyter nbextension install --sys-prefix`
-        ("share/jupyter/nbextensions/jupytertoolbox", [
-            "jupytertoolbox/static/index.js",
+        ("share/jupyter/nbextensions/snapit", [
+            "snapit/static/index.js",
         ]),
-        ("share/jupyter/nbextensions/jupytertoolbox", [
-            "jupytertoolbox/static/handlers.js",
+        ("share/jupyter/nbextensions/snapit", [
+            "snapit/static/handlers.js",
         ]),
         # like `jupyter nbextension enable --sys-prefix`
         ("etc/jupyter/nbconfig/notebook.d", [
-            "jupyter-config/nbconfig/notebook.d/jupytertoolbox.json"
+            "jupyter-config/nbconfig/notebook.d/snapit.json"
         ]),
         # like `jupyter serverextension enable --sys-prefix`
         ("etc/jupyter/jupyter_notebook_config.d", [
-            "jupyter-config/jupyter_notebook_config.d/jupytertoolbox.json"
+            "jupyter-config/jupyter_notebook_config.d/snapit.json"
         ])
     ],
     install_requires=[

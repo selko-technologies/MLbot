@@ -1,4 +1,4 @@
 .DS_Store
-jupytertoolbox.egg-info/*
+snapit.egg-info/*
 build/*
 dist/*

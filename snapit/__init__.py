@@ -24,6 +24,6 @@ def _jupyter_nbextension_paths():
     return [dict(
         section="notebook",
         src="static",
-        dest="jupytertoolbox",
-        require="jupytertoolbox/index")]
+        dest="snapit",
+        require="snapit/index")]
 

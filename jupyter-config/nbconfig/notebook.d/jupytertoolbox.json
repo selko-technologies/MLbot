@@ -1,5 +1,5 @@
 {
   "load_extensions": {
-    "jupytertoolbox/index": true
+    "snapit/index": true
   }
 }
