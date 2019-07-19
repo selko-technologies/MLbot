@@ -1,4 +1,4 @@
 .DS_Store
-snapit.egg-info/*
+snapbot.egg-info/*
 build/*
 dist/*
