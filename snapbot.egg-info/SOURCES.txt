@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+jupyter-config/jupyter_notebook_config.d/snapbot.json
+jupyter-config/nbconfig/notebook.d/snapbot.json
+snapbot/__init__.py
+snapbot/handlers.py
+snapbot.egg-info/PKG-INFO
+snapbot.egg-info/SOURCES.txt
+snapbot.egg-info/dependency_links.txt
+snapbot.egg-info/not-zip-safe
+snapbot.egg-info/requires.txt
+snapbot.egg-info/top_level.txt
+snapbot/static/handlers.js
+snapbot/static/index.js

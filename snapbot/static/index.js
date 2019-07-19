@@ -10,7 +10,7 @@ define(['jquery', 'base/js/namespace', 'base/js/dialog', './handlers'], function
             .change(handlers.select_version_handler);
         
         // buttons for version saving
-        var prefix = 'snapit';
+        var prefix = 'snapbot';
         var save_locally = {
             icon: 'fa-history',
             help: 'Save version locally',

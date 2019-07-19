@@ -1,10 +1,10 @@
-# Snapit - Jupyter notebook version control, experiment tracking
+# snapbot - Jupyter notebook version control, experiment tracking
 
-![](snapit.gif)
+![](demo1.gif)
 
 
 ## Installation
-`pip intall snapit`
+`pip intall snapbot`
 
 > #### Important
 > Jupyter notebook server might need to be restarted for server etension to work. If after saving a version, the page didn't refresh & new version didn't show up in Verions dropdown menu. Then: 

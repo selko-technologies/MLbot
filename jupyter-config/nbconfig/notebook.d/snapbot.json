@@ -1,5 +1,5 @@
 {
   "load_extensions": {
-    "snapit/index": true
+    "snapbot/index": true
   }
 }
