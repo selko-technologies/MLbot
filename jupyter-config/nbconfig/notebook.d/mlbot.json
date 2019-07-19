@@ -1,5 +1,5 @@
 {
   "load_extensions": {
-    "snapbot/index": true
+    "mlbot/main": true
   }
 }

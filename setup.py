@@ -6,33 +6,33 @@ from __future__ import print_function
 from setuptools import find_packages, setup
 
 setup(
-    name='snapbot',
+    name='mlbot',
     description="Version control, experiment tracking, script exporting, etc. for Jupyter notebooks",
     long_description="",
-    version='0.0.1a1dev02',
+    version='0.0.1a1dev01',
     author='Sirong Huang',
     author_email='sirong.huang@selko.io',
     url=('https://github.com/selko-io/jupyter-toolbox'),
     keywords=['IPython', 'Jupyter', 'notebook','version control','experiment tracking','script export'],
     license='BSD-2-Clause',
     platforms=['Any'],
-    packages=['snapbot'],
+    packages=['mlbot'],
     include_package_data=True,
     data_files=[
         # like `jupyter nbextension install --sys-prefix`
-        ("share/jupyter/nbextensions/snapbot", [
-            "snapbot/static/index.js",
+        ("share/jupyter/nbextensions/mlbot", [
+            "mlbot/static/main.js",
         ]),
-        ("share/jupyter/nbextensions/snapbot", [
-            "snapbot/static/handlers.js",
+        ("share/jupyter/nbextensions/mlbot", [
+            "mlbot/static/handlers.js",
         ]),
         # like `jupyter nbextension enable --sys-prefix`
         ("etc/jupyter/nbconfig/notebook.d", [
-            "jupyter-config/nbconfig/notebook.d/snapbot.json"
+            "jupyter-config/nbconfig/notebook.d/mlbot.json"
         ]),
         # like `jupyter serverextension enable --sys-prefix`
         ("etc/jupyter/jupyter_notebook_config.d", [
-            "jupyter-config/jupyter_notebook_config.d/snapbot.json"
+            "jupyter-config/jupyter_notebook_config.d/mlbot.json"
         ])
     ],
     install_requires=[

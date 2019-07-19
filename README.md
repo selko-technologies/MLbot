@@ -1,10 +1,10 @@
-# snapbot - Jupyter notebook version control, experiment tracking
+# mlbot - Jupyter notebook version control, experiment tracking
 
-![](demo1.gif)
+![](demos/demo1.gif)
 
 
 ## Installation
-`pip intall snapbot`
+`pip intall mlbot`
 
 > #### Important
 > Jupyter notebook server might need to be restarted for server etension to work. If after saving a version, the page didn't refresh & new version didn't show up in Verions dropdown menu. Then: 
