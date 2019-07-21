@@ -40,27 +40,21 @@ define(['jquery', 'base/js/namespace', 'base/js/dialog', './handlers'], function
             .attr("id", "menu_header")
             .text("Versions");
         $("select#version_picker").append(option);
+
+        var full_fpath = window.location.pathname.replace(/%20/g, ' ').replace('/notebooks','');
+        var current_dir = full_fpath.substring(0, full_fpath.lastIndexOf('/'))
+        var fname = full_fpath.substring(full_fpath.lastIndexOf('/')+1);
+        var fname_only = fname.substring(0, fname.indexOf('.'))
+        var log_path = "./nb_versions/" + fname_only + "/version_log.json"
         
-        var url = window.location.pathname;
-        var fname = url.substring(url.lastIndexOf('/')+1);
-        var fname_only = fname.substring(0,fname.indexOf('.'))
-            
-        $.getJSON("./nb_versions/"+fname_only+"/version_log.json", function(data) {
-            $.each(data['versions'], function(key, version) {
+        $.getJSON(log_path, function (data) {   //takes relative path
+            $.each(data['versions'], function (key, version) {
                 var option = $("<option></option>")
                     .attr("fpath", version['fpath'])
                     .text('v' + version['version'].toString())
                     .prop('title', version['note']);
                 $("select#version_picker").append(option);
             });
-        })
-        .error(function(jqXHR, textStatus, errorThrown) {
-            // Add an error message if the JSON fails to load
-            var option = $("<option></option>")
-                         .attr("value", 'ERROR')
-                         .text('Error: failed to load snippets!')
-                         .attr("code", "");
-            $("select#version_picker").append(option);
         });
     };
     

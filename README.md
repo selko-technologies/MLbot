@@ -1,4 +1,4 @@
-# mlbot - Jupyter notebook version control, experiment tracking
+# MLbot - Jupyter notebook version control, experiment tracking
 
 ![](demos/demo1.gif)
 
@@ -6,10 +6,10 @@
 ## Installation
 `pip intall mlbot`
 
+The project is under constant development of alpha version. `pip install --upgrade mlbot` to upgrade to newest version.
+
 > #### Important
-> Jupyter notebook server might need to be restarted for server etension to work. If after saving a version, the page didn't refresh & new version didn't show up in Verions dropdown menu. Then: 
->    - in local machine, close the jupyter notebook terminal or ctrl-c, and restart another one
->    - in cloud instance, reboot instance
+> After installation/upgrade, restart jupyter notebook instace (restart cloud instance if using one) for the changes to take effect. 
 
 ## Features
 
@@ -25,10 +25,7 @@
 ## Todo:
 - save to github
 - save to gitlab
-- automatic experiment tracking 
-    - neptune
-    - ml flow
-    - model chimp
+- automatic experiment tracking with ml flow
 
 ## Limitations:
 - when the notebook is renamed, it'll generate a new save folder for the newly named notebook without access to previous versions. 

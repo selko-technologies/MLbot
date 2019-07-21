@@ -37,7 +37,7 @@ define(['jquery', 'base/js/namespace', 'base/js/dialog'], function($, Jupyter, d
         function on_click_ok() {
             var base_url = window.location.origin;
             // eg. /notebooks/test.ipynb  rm /notebooks/ later
-            var fpath = window.location.pathname;
+            var fpath = '.'+window.location.pathname.replace(/%20/g, ' ').replace('/notebooks','');
             var post_url = base_url + '/savelocally';
 
             $.ajax({
