@@ -73,6 +73,31 @@ define(['jquery', 'base/js/namespace', 'base/js/dialog'], function($, Jupyter, d
             keyboard_manager: env.notebook.keyboard_manager
         });
     };
+
+    var run_mlflow_experiment_handler = function (env) {
+        Jupyter.notebook.save_checkpoint();
+        //! change to allow user to select MLflow server / locally / ...
+        var base_url = window.location.origin; 
+        var fpath = '.'+window.location.pathname.replace(/%20/g, ' ').replace('/notebooks','');  // ./ML/cat-dog/classifier.ipynb
+        var post_url = base_url + '/runmlflow';
+
+        $.ajax({
+            type: "GET",
+            url: post_url,
+            data: {
+                fpath : fpath
+            },
+            dataType:"text",
+            success: function (response) {
+                window.location.reload();
+                console.log('Successfully run and logged experiment')
+                alert('Experiment ran and logged successfully!')
+            },
+            error: function (response) {
+                console.log('Error occured')
+            }
+        });
+    };
     
     var save_version_to_github_handler = function (env) {
         var on_success = undefined;
@@ -156,7 +181,8 @@ define(['jquery', 'base/js/namespace', 'base/js/dialog'], function($, Jupyter, d
 
 
     return {
-        save_version_locally_handler:save_version_locally_handler, 
+        save_version_locally_handler: save_version_locally_handler, 
+        run_mlflow_experiment_handler:run_mlflow_experiment_handler,
         select_version_handler: select_version_handler, 
         alert_handler: alert_handler, 
         save_version_to_github_handler:save_version_to_github_handler

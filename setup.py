@@ -9,7 +9,7 @@ setup(
     name='mlbot',
     description="Version control, experiment tracking, script exporting, etc. for Jupyter notebooks",
     long_description="",
-    version='0.0.1a1dev03',
+    version='0.0.1a1dev13',
     author='Sirong Huang',
     author_email='sirong.huang@selko.io',
     url=('https://github.com/selko-technologies/MLbot'),
@@ -36,6 +36,7 @@ setup(
         ])
     ],
     install_requires=[
+        'mlflow==1.0.0',
         'notebook >=4.0',
         'tornado'
     ],

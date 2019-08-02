@@ -1,6 +1,7 @@
 """Jupyter server extension for version control"""
 
 from .handlers import ChangeVersionHandler, SaveLocallyHandler
+from .mlflow_handlers import MLflowExperimentHandler
 from notebook.utils import url_path_join
 
 
@@ -11,7 +12,8 @@ def load_jupyter_server_extension(nbapp):
 
     change_version_handler = (url_path_join(base_url, '/selectversion'), ChangeVersionHandler)
     save_locally_handler = (url_path_join(base_url, '/savelocally'), SaveLocallyHandler)
-    webapp.add_handlers(".*$", [change_version_handler, save_locally_handler])
+    run_mlflow_experiment_handler = (url_path_join(base_url, '/runmlflow'), MLflowExperimentHandler)
+    webapp.add_handlers(".*$", [change_version_handler, save_locally_handler, run_mlflow_experiment_handler])
 
 
 def _jupyter_server_extension_paths():

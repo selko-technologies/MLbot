@@ -12,10 +12,16 @@ define(['jquery', 'base/js/namespace', 'base/js/dialog', './handlers'], function
         // buttons for version saving
         var prefix = 'mlbot';
         var save_locally = {
-            icon: 'fa-history',
+            icon: 'fa-bookmark',  //fa-history
             help: 'Save version locally',
             help_index: '',
             handler: handlers.save_version_locally_handler
+        };
+        var run_mlflow_experiment = {
+            icon: 'fa-align-left',
+            help: 'Run notebook log to mlflow',
+            help_index: '',
+            handler: handlers.run_mlflow_experiment_handler
         };
         var save_github = {
             icon: 'fa-github',
@@ -30,10 +36,11 @@ define(['jquery', 'base/js/namespace', 'base/js/dialog', './handlers'], function
             handler: handlers.alert_handler
         };
         var save_locally_action = Jupyter.actions.register(save_locally, 'save_locally', prefix);
+        var run_mllflow_action = Jupyter.actions.register(run_mlflow_experiment, 'run_mlflow', prefix);
         var save_github_action = Jupyter.actions.register(save_github, 'save_github', prefix);
         var save_gitlab_action = Jupyter.actions.register(save_gitlab, 'save_gitlab', prefix);
         Jupyter.toolbar.element.append(dropdown);
-        Jupyter.toolbar.add_buttons_group([save_locally_action, save_github_action, save_gitlab_action]);
+        Jupyter.toolbar.add_buttons_group([save_locally_action, run_mllflow_action, save_github_action, save_gitlab_action]);
 
         // index versions for dropdown menu
         var option = $("<option></option>")
