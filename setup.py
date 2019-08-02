@@ -9,7 +9,7 @@ setup(
     name='mlbot',
     description="Version control, experiment tracking, script exporting, etc. for Jupyter notebooks",
     long_description="",
-    version='0.0.1a1dev13',
+    version='0.0.1a1dev14',
     author='Sirong Huang',
     author_email='sirong.huang@selko.io',
     url=('https://github.com/selko-technologies/MLbot'),
@@ -35,10 +35,12 @@ setup(
             "jupyter-config/jupyter_notebook_config.d/mlbot.json"
         ])
     ],
+    #! need to fix dependency packages more + fastai requirement
     install_requires=[
         'mlflow==1.0.0',
         'notebook >=4.0',
-        'tornado'
+        'tornado',
+        'boto3'
     ],
     zip_safe=False,
     classifiers=[
