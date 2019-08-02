@@ -21,8 +21,10 @@ The project is under constant development of alpha version. `pip install --upgra
 2. Automatically experiment tracking
     - parameters, loss, metrics, data version, model etc....
     - using MLFlow at the moment: 
-        - by default logging locally to current working directory
-        - if MLFLOW_TRACKING_URI and AWS credentials are set up, logging to remote server
+        - by default logging __locally__ to current working directory
+            - run `mlflow ui` in the current working directory terminal
+            - tracking ui is then served at localhost:5000/
+        - if MLFLOW_TRACKING_URI and AWS credentials are set up, logging to __remote server__
         
 ## Todo:
 - save to github
