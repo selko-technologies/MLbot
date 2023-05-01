@@ -37,7 +37,7 @@ setup(
     ],
     #! need to fix dependency packages more + fastai requirement
     install_requires=[
-        'mlflow==1.0.0',
+        'mlflow==2.3.1',
         'notebook >=4.0',
         'tornado',
         'boto3'
